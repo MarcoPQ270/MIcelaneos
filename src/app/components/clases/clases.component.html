@@ -1,0 +1,23 @@
+<div [ngClass]="alerta" class="alert" role="alert">
+    A simple primary alert—check it out!
+</div>
+
+<button type="button" (click)="alerta='alert-info'" class="btn btn-primary">Info</button>
+<button type="button" (click)="alerta='alert-success'" class="btn btn-success">Success</button>
+<button type="button" (click)="alerta='alert-danger'" class="btn btn-danger">Danger</button>
+<button type="button" (click)="alerta='alert-warning'" class="btn btn-warning">Warning</button>
+
+<br><br>
+<!-- se crea el ngclass y este puede recibir parametos depediento de lo que este en typeScript -->
+<h3 [ngClass]="{'text-danger': propiedad.danger, 'text-info': !propiedad.danger}">
+    Hola mundo!!
+</h3>
+<button (click)="propiedad.danger = !propiedad.danger" type="button" name="button" class="btn" [ngClass]="{'btn-danger': propiedad.danger, 'btn-info': !propiedad.danger}">Cambio</button>
+<br><br>
+
+<h3>Proceso Asincrono</h3>
+<button (click)="Ejecutar()" type="button" name="button" class="btn btn-primary" [disabled]="loading">
+    <i [ngClass]="{'fa-save':!loading, 'fa fa-refresh':loading}" class="fa fa-refresh fa-spin"></i>
+    <span *ngIf="!loading"> Guardar cambios</span> 
+    <span *ngIf="loading"> Espere por favor...</span>
+</button>
